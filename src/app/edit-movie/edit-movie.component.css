@@ -1,0 +1,17 @@
+.box{
+    width: min(1000px,98vw);
+    min-height: 70vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+.row{
+    padding: 20px;
+    border-radius: 20px;
+}
+.movie-image{
+    height: 300px;
+    width: 200px;
+}

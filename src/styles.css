@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Quicksand:wght@300..700&display=swap');
+body{
+    background-color: rgb(13, 2, 2);
+    color: white;
+
+  font-family: "Quicksand", sans-serif;
+};
+*{
+    font-family: "Quicksand", sans-serif;
+}
+.logo{
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.white-shadow{
+    box-shadow:0px 0px 30px 1px rgba(255, 255, 255, 0.153);
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+igc-rating {
+    --symbol-size: 50px;
+    --symbol-full-color: hsla(var(--ig-warn-A400), var(--ig-warn-a));
+    --symbol-empty-color: hsla(var(--ig-warn-A400), var(--ig-warn-a));
+}
+
+igc-rating[disabled] {
+    --symbol-full-color: hsla(var(--ig-gray-400), var(--ig-gray-a));
+    --symbol-empty-color: hsla(var(--ig-gray-400), var(--ig-gray-a));
+}
+
+igc-rating::part(label) {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: var(--ig-overline-text-transform);
+    color: hsla(var(--ig-gray-600), var(--ig-gray-a));
+}
+
+igc-rating::part(symbols) {
+    gap: 8px; 
+}
+input{
+    color:white !important;
+}
+
+::placeholder {
+    color:rgba(255, 255, 255, 0.789) !important;
+  }

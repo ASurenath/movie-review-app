@@ -1,0 +1,50 @@
+<div class="box white-shadow px-md-5 py-0 rounded-4">
+    <div class="row py-5 text-center">
+        <form #addForm="ngForm">
+            <h3>update movie</h3>
+            <label>
+                <input type="file" (change)="getFile($event)" style="display: none;" />
+                <img [src]="movie.image" class="img-fluid btn movie-image white-shadow p-0" alt="">
+            </label>
+            <div class="form-floating mt-4 ">
+                <input type="email" name="email" [(ngModel)]="movie.name" class="form-control bg-black"
+                    id="floatingInput" placeholder="" required #NameInput="ngModel" />
+                <label for="floatingInput">Movie name</label>
+            </div>
+            <div class="p-3 text-center fs-5">
+                <b>Genre:</b> &nbsp;&nbsp;
+                <span *ngFor="let t of allTags">
+                    <input type="checkbox" class="form-check-input" [name]="t" [id]="t" [(ngModel)]="tags[t]"
+                        (change)="updateTagList()"/>
+                    <label [for]="t">&nbsp; {{t}}</label> &nbsp;&nbsp;
+                </span>
+
+            </div>
+            <p *ngIf="NameInput.invalid && NameInput.touched" class="text-danger ">Invalid name</p>
+            <!-- <div class="form-floating mt-4">
+                    <input type="password" name="password" [(ngModel)]="password" class="form-control bg-black" id="floatingPassword" placeholder="Password" required pattern="[a-zA-Z0-9]*" minlength=3 #userPasswordInput="ngModel"/>
+                    <label for="floatingPassword">Password</label>
+                  </div> -->
+            <!-- <p class="text-danger" *ngIf="userPasswordInput.invalid && userPasswordInput.touched">Invalid password</p> -->
+            <button type="submit" [disabled]="addForm.invalid"
+                class="btn btn-success mt-4" (click)="updateMovie()">Update</button>
+        </form>
+        <div class="text-justify" style="height: 100%;">
+            <h3>
+                Reviews
+            </h3>
+            <div class="rating">
+                <igc-rating max="5" step=".5" size="large" [value]="rating.value" title="{{rating.value}}/5" readonly
+                style="color: rgb(237, 225, 0);"> </igc-rating> ({{rating.count}})
+            </div>
+    
+            <div *ngFor="let review of reviews" class="p-4 review-box rounded">
+                <p class="text-secondary">{{review.author}} &nbsp;&nbsp;<i (click)="deleteReview(review.id)" class="fa-solid fa-trash btn" ></i> <br> <igc-rating max="5" step=".5" size="large"
+                        [value]="review.rating" readonly style="color: rgb(237, 225, 0);"> </igc-rating></p>
+    
+                <p>{{review.content}}</p>
+             
+            </div>
+        </div>
+    </div>
+</div>

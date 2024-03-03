@@ -1,0 +1,9 @@
+.movie-image{
+    height: 300px;
+    width: 200px;
+}
+
+.movie-image:hover{
+transform: scale(1.05);
+transition: cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+}

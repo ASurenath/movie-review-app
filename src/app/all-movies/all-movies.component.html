@@ -1,0 +1,21 @@
+<div class="container-sm mx-auto">
+    <div class="row">
+        <div class="col-lg-6 d-flex">
+             <label for="genre">Genre:&nbsp;&nbsp;</label> <select class="form-select bg-black text-white w-50 mb-3 " aria-label="Default select example" id="genre" [(ngModel)]="filter">
+                <option value="" default>All</option>
+                <option value="Romantic">Romantic</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Horror">Horror</option>
+                <option value="Thriller">Thriller</option>
+              </select>
+        </div>
+        <div class="col-lg-6">
+            <input type="text" [(ngModel)]="searchKey" name="search" id="search" placeholder="Search..."
+            class="form-control w-50 ms-auto rounded-4 border-1 mb-3 bg-black" />
+        </div>
+    </div>
+    <div class="row w-100 d-flex justify-content-evenly">
+        <div *ngFor="let movie of allMovies| search :searchKey |filter :filter" class="col-lg-3 col-md-4 col-sm-6 white-shadow p-0  btn my-3" style="height:300px ;width: 200px;">
+            <img routerLink="/movie/{{movie.id}}" [src]="movie.image" [alt]="movie.name" class="movie-image">
+        </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="container-sm" style="min-height: 60vh;">
+    <div class="text-center" style="height: 100%;">
+        <img [src]="movie.image" [alt]="movie.name" class="view-image white-shadow" />
+        <h3>{{movie.name}}</h3>
+    </div>
+    <div><button *ngFor="let item of movie.tags" class="btn btn-outline-secondary p-1 mx-2" disabled>{{item}}</button></div>
+    <div class="text-justify" style="height: 100%;">
+        <h3>
+            Reviews
+        </h3>
+        <div class="rating">
+            <igc-rating max="5" step=".5" size="large" [value]="rating.value" title="{{rating.value}}/5" readonly
+                style="color: rgb(237, 225, 0);"> </igc-rating> ({{rating.count}})
+        </div>
+
+        <div *ngFor="let review of reviews" class="p-4 review-box rounded">
+            <p class="text-secondary">{{review.author}} <igc-rating max="5" step=".5" size="large"
+                    [value]="review.rating" readonly style="color: rgb(237, 225, 0);"> </igc-rating></p>
+
+            <p>{{review.content}}</p>
+        </div>
+        <p (click)="switchPostStatus()" class="pt-4 text-center" style="cursor: pointer;">
+            <i *ngIf="!postStatus" class="fa-solid fa-plus fa-2xl"></i>
+            <i *ngIf="postStatus" class="fa-solid fa-plus fa-rotate-by fa-2xl" style="--fa-rotate-angle: 45deg;"></i>
+        </p>
+        <div *ngIf="postStatus" class="p-4 review-box rounded">
+            <input type="text" placeholder="Your name " class="form-control mb-3" [(ngModel)]="newReview.author" name="author"/>
+           <div class="pb-3">
+               Rating: <igc-rating max="5" step=".5" size="large" name="rating" [(ngModel)]="newReview.rating" hover-preview
+                    style="color: rgb(237, 225, 0);"> </igc-rating>
+           </div>
+            <textarea name="content" id="" rows="3" style="width:100%" placeholder="Your comments..." [(ngModel)]="newReview.content"
+                class="form-control mb-3"></textarea>
+            <div class=" text-center"><button (click)="postReview()" class="btn btn-outline-light">Post</button></div>
+        </div>
+    </div>
+
+</div>

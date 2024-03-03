@@ -1,0 +1,9 @@
+<div class="container-sm d-flex justify-content-between">
+    <h3 routerLink="/" class="logo pb-3" style="cursor: pointer;"><i class="fa-solid fa-clapperboard"></i>Movie Rating</h3>
+    <div class="">
+        <button *ngIf="!api.loginStatus" routerLink="/login" class="btn btn-outline-light m-3" style="cursor: pointer;">Admin Login</button>
+        <button *ngIf="api.loginStatus" routerLink="/admin" class="btn btn-outline-light m-3" style="cursor: pointer;">Manage&nbsp;movies</button>
+        <button *ngIf="api.loginStatus" (click)="logout()" class="btn btn-outline-light m-3" style="cursor: pointer;">Logout</button>
+        
+    </div><!-- {{api.loginStatus}} -->
+</div>

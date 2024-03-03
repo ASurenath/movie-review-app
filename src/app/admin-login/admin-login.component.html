@@ -1,0 +1,20 @@
+<div class="box white-shadow px-md-5 py-0 rounded-4">
+    <div class="row py-5 text-center">
+            <form #loginForm="ngForm" (ngSubmit)="login()">
+                <h3>Admin login <i class="fa-solid fa-question btn btn-outline-light" title="email:admin@demo.com,password:admin123"></i></h3>
+                <div class="form-floating mt-4 " >
+                    <input type="email" name="email" [(ngModel)]="email" class="form-control bg-black" id="floatingInput" placeholder="" required email #userEmailInput="ngModel" />
+                    <label for="floatingInput">Email address</label>
+                  </div>
+                  <p *ngIf="userEmailInput.invalid && userEmailInput.touched" class="text-danger ">Invalid email</p>
+                  <div class="form-floating mt-4">
+                    <input type="password" name="password" [(ngModel)]="password" class="form-control bg-black" id="floatingPassword" placeholder="" required pattern="[a-zA-Z0-9]*" minlength=3 #userPasswordInput="ngModel"/>
+                    <label for="floatingPassword">Password</label>
+                  </div>
+                  <p class="text-danger" *ngIf="userPasswordInput.invalid && userPasswordInput.touched">Invalid password</p>
+                  <button type="submit" [disabled]="loginForm.invalid&&loginForm.touched" class="btn btn-success mt-4">Login</button>
+            </form>
+            <!-- <p>{{email}}</p>
+            <p>{{password}}</p> -->
+    </div>
+</div>
