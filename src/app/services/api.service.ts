@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
-SERVER_URL:string='http://localhost:3000'
+SERVER_URL:string='https://movie-review-server-ongo.onrender.com'
 loginStatus:boolean=!!sessionStorage.getItem('adminDetails')
   constructor(private http:HttpClient) { }
   updateLoginStatus(){
